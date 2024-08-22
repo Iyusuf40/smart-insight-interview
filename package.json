@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@mysql/xdevapi": "^8.0.35"
+  },
+  "type": "module"
+}
