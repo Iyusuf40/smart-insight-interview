@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "@mysql/xdevapi": "^8.0.35"
+    "@mysql/xdevapi": "^8.0.35",
+    "express": "^4.19.2"
   },
   "type": "module"
 }

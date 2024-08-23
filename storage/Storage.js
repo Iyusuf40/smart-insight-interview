@@ -84,11 +84,14 @@ export class Storage {
      * varaible in whereStatement e.g 'age = :v' must have a bindWhereKeysToValues of e,g {v: 42}
      * @returns 
      */
-    async select(keys, whereStatement, bindWhereKeysToValues) {
+    async select(keys, whereStatement, bindWhereKeysToValues, limit) {
         const table = await this.#getTable()
         const query = table.select(keys)
         if (whereStatement && bindWhereKeysToValues) {
             query.where(whereStatement).bind(bindWhereKeysToValues)
+        }
+        if (limit) {
+            query.limit(limit)
         }
         let result = await query.execute()
         let objects = []
