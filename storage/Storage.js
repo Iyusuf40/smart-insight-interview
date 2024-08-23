@@ -52,7 +52,7 @@ export class Storage {
     async insert(keyValuePairs) {
         const table = await this.#getTable()
         let {keys, values} = getKeysAndValuesOfObject(keyValuePairs)
-        const result = table.insert(keys)
+        const result = await table.insert(keys)
             .values(values)
             .execute()
         return result
@@ -115,6 +115,12 @@ export class Storage {
             object[key] = objectValues[i]
         })
         return object
+    }
+
+    async count() {
+        const table = await this.#getTable()
+        let c = await table.count()
+        return c
     }
 }
 
