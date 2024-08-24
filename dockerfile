@@ -1,8 +1,8 @@
 # Use an official Node.js 19 image as the base
-FROM ubuntu:18
+FROM ubuntu:18.04
 
 # Install Git
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git curl
 
 # Set the working directory to /app
 WORKDIR /app
