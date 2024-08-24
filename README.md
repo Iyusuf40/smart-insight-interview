@@ -108,83 +108,16 @@ and the api can be reached at `http://localhost:3000/`
 }
 ```
 
-## Autobots API
-
-### 1. Get Autobots
-
-**Endpoint**: `GET /autobots`
-
-**Description**: Retrieves a paginated list of Autobots.
-
-**Query Parameters**:
-- `limit` (optional, integer): The number of Autobots to retrieve per page. Default is `10`.
-- `page` (optional, integer): The page number to retrieve. Default is `1`.
-
-**Response**:
-- `200 OK`: Returns an array of Autobots.
-- `500 Internal Server Error`: If there is an issue with fetching Autobots.
-
-**Response Body**:
-```json
-[
-  {
-    "id": 1,
-    "name": "Optimus Prime",
-    "username": "optimus",
-    "email": "optimus@autobots.com"
-  },
-  {
-    "id": 2,
-    "name": "Bumblebee",
-    "username": "bumblebee",
-    "email": "bumblebee@autobots.com"
-  }
-  // More Autobots...
-]
-```
-
-**Example Request**
-
-`GET /autobots?limit=5&page=2`
-
-
-### 2. Get Autobot by ID
-
-**Endpoint**: `GET /autobots/:id`
-
-**Description**: Retrieves details of a specific Autobot by its ID.
-
-**Path Parameters**:
-
-- `id` (required, integer): The ID of the Autobot to retrieve.
-
-**Response**:
-
-- `200 OK`: Returns the Autobot object.
-- `404 Not Found`: If the Autobot with the specified ID does not exist.
-- `500 Internal Server Error`: If there is an issue with fetching the Autobot.
-
-**Response Body**:
-
-```json
-{
-  "id": 1,
-  "name": "Optimus Prime",
-  "username": "optimus",
-  "email": "optimus@autobots.com"
-}
-```
-
 ## Posts API
 
 ### 1. Get Posts
 
 **Endpoint**: `GET /posts`
 
-**Description**: Retrieves a paginated list of posts.
+**Description**: Retrieves a paginated list of Posts.
 
 **Query Parameters**:
-- `limit` (optional, integer): The number of Autobots to retrieve per page. Default is `10`.
+- `limit` (optional, integer): The number of Posts to retrieve per page. Default is `10`.
 - `page` (optional, integer): The page number to retrieve. Default is `1`.
 - `autobotId` (optional, integer): The posts made by autobot with id autobotId to retrieve. Default is `1`.
 
@@ -198,13 +131,13 @@ and the api can be reached at `http://localhost:3000/`
   {
     "id": 1,
     "title": "Optimus Prime",
-    "body": "optimus",
+    "body": "Optimus Prime is alpha",
     "autoBotId": 1
   },
   {
     "id": 2,
     "title": "Bumblebee",
-    "body": "bumblebee",
+    "body": "bumblebee is beta",
     "autoBotId": 1
   }
   // More Posts...
@@ -224,13 +157,13 @@ and the api can be reached at `http://localhost:3000/`
 
 **Path Parameters**:
 
-- `id` (required, integer): The ID of the Autobot to retrieve.
+- `id` (required, integer): The ID of the Post to retrieve.
 
 **Response**:
 
-- `200 OK`: Returns the Autobot object.
-- `404 Not Found`: If the Autobot with the specified ID does not exist.
-- `500 Internal Server Error`: If there is an issue with fetching the Autobot.
+- `200 OK`: Returns the Post object.
+- `404 Not Found`: If the Post with the specified ID does not exist.
+- `500 Internal Server Error`: If there is an issue with fetching the Post.
 
 **Response Body**:
 
@@ -238,7 +171,7 @@ and the api can be reached at `http://localhost:3000/`
  {
     "id": 1,
     "title": "Optimus Prime",
-    "body": "optimus",
+    "body": "optimus Prime is alpha",
     "autoBotId": 1
   }
 ```
