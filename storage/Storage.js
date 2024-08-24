@@ -113,6 +113,7 @@ export class Storage {
         }
         let result = await query.execute()
         let objectValues = result.fetchOne()
+        if (!objectValues) return {}
         let object = {}
         keys.forEach((key, i) => {
             object[key] = objectValues[i]

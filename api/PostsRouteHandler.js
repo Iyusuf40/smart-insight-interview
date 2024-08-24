@@ -6,10 +6,10 @@ class PostsRouteHandler {
   static async getPosts(req, res) {
     try {
       const pageLimit = 10
-      const limit = req.query.limit || 10;
-      const page = req.query.page || 1;
+      const limit = Number(req.query.limit) || 10;
+      const page = Number(req.query.page) || 1;
       let offset = (page - 1) * pageLimit
-      let autobotId = req.query.autobotId
+      let autobotId = Number(req.query.autobotId) || 0
       let posts = []
       if (autobotId) {
         posts = await storage.select(
@@ -34,7 +34,7 @@ class PostsRouteHandler {
 
   static async getPostById(req, res) {
     try {
-      const id = req.params.id;
+      const id = Number(req.params.id) || 0;
       const post = await storage.get(["id", "title", "body", "autobotId"], "id = :id", { id });
       if (!post) {
         res.status(404).json({ message: `Post with id ${id} not found`});

@@ -1,9 +1,11 @@
+import { API_PORT } from "../config.js"
 import { users } from "../jsonplaceholderData/users.js"
 import { AutoBot } from "../models/AutoBot.js"
 import { AutobotsStorage } from "../storage/AutobotsStorage.js"
 import { PostsGenerator } from "./PostsGenerator.js"
+import http from "http";
 
-const NUMBER_OF_BOTS_TO_BUILD = 10
+const NUMBER_OF_BOTS_TO_BUILD = Number(process.env.botsgencount) || 500
 const autobotsStore = new AutobotsStorage()
 
 export class AutoBotsGenerator {
@@ -47,8 +49,10 @@ export class AutoBotsGenerator {
         await postGen.generate()
     }
 
-    async updateApi(currentCount) {
-        console.log(`bot with id ${currentCount} generated`)
+    async updateApi(count) {
+        console.log(`bot with id ${count} generated`)
+        let url = `http://localhost:${API_PORT}/updateclient/${count}`
+        http.get(url)
     }
 
     makeRandomName() {
