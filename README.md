@@ -2,7 +2,11 @@
 
 ## setup
 **Using docker - RECOMMENDED**
+
+RUN
+
 `docker pull iyusuf40/smart-insight-ai:latest`
+
 `docker run -d -p 8081:8081 -p 3000:3000 --name smart-ai-cont iyusuf40/smart-insight-ai:latest`
 
 you can then view the frontend at `http://localhost:8081/`
