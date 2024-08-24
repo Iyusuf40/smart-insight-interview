@@ -4,9 +4,14 @@ node api/server.js &
 
 CURRENT_DIR=$(pwd)
 
-./createFrontend.sh
-./buildFrontend.sh
-./serveFrontend.sh &
+cd frontend
+npm install
+npm run build
+
+cd ..
+
+cd frontend
+npx serve -s dist -p 8081 &
 
 cd "$CURRENT_DIR"
 
