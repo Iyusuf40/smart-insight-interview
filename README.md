@@ -1,5 +1,16 @@
 # smart-insight-interview
 
+## setup
+**Using docker**
+
+
+**Using Local system**
+- ensure you have node, redis and mysql installed
+- in project root run `<shell> startApp.sh`
+- where shell is your default shell e.g `bash startApp.sh`
+- api is at `http://localhost:3000/`
+- while frontend app is at `http://localhost:8081/`
+
 # API Documentation - Autobots, Posts, and Comments
 
 ## Base URL

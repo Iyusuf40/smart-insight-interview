@@ -10,8 +10,8 @@ WORKDIR /app
 # Clone the Git repository
 RUN git clone https://github.com/Iyusuf40/smart-insight-interview .
 
-RUN bash installNode.sh
-
+RUN curl -sL https://deb.nodesource.com/setup_19.x | bash -
+RUN apt-get install -y nodejs
 # Install dependencies
 RUN npm install
 
