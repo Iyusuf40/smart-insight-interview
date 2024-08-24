@@ -10,4 +10,4 @@ CURRENT_DIR=$(pwd)
 
 cd "$CURRENT_DIR"
 
-node run_jobs.js &
+node run_job.js &
